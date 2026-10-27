@@ -1,0 +1,10 @@
+{
+  "name": "imovies",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm start"
+  }
+}

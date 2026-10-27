@@ -58,7 +58,9 @@ export const SeatSlug = () => {
   useEffect(() => {
     fetchShowData();
 
-    const socket = io('/', { transports: ['websocket', 'polling'] });
+    const rawApiUrl = import.meta.env.VITE_API_URL;
+    const socketUrl = rawApiUrl ? rawApiUrl.replace(/\/api\/?$/, '') : '/';
+    const socket = io(socketUrl, { transports: ['websocket', 'polling'] });
     socketRef.current = socket;
 
     socket.on('connect', () => {
