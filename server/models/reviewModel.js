@@ -1,0 +1,37 @@
+import mongoose from 'mongoose';
+
+const reviewSchema = new mongoose.Schema(
+  {
+    userEmail: {
+      type: String,
+      required: [true, 'User email is required'],
+      lowercase: true,
+      trim: true,
+    },
+    username: {
+      type: String,
+      default: 'Anonymous',
+    },
+    movieId: {
+      type: String,
+      required: [true, 'Movie ID is required'],
+      trim: true,
+    },
+    rating: {
+      type: Number,
+      required: [true, 'Rating is required'],
+      min: 1,
+      max: 10,
+    },
+    reviewText: {
+      type: String,
+      required: [true, 'Review text is required'],
+      trim: true,
+      minlength: [3, 'Review must be at least 3 characters'],
+    },
+  },
+  { timestamps: true }
+);
+
+const Review = mongoose.models.Review || mongoose.model('Review', reviewSchema);
+export default Review;
