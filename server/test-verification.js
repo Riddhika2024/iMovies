@@ -34,11 +34,11 @@ async function main() {
   // Poll until health endpoint responds
   let baseUrl = 'http://127.0.0.1:5050/api';
   let isReady = false;
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 50; i++) {
     for (const port of [5050, 5000, 5005]) {
       try {
         const res = await fetch(`http://127.0.0.1:${port}/api/health`, {
-          signal: AbortSignal.timeout(500),
+          signal: AbortSignal.timeout(600),
         });
         if (res.ok) {
           baseUrl = `http://127.0.0.1:${port}/api`;
@@ -48,7 +48,7 @@ async function main() {
       } catch (e) {}
     }
     if (isReady) break;
-    await new Promise((r) => setTimeout(r, 400));
+    await new Promise((r) => setTimeout(r, 500));
   }
 
   if (!isReady) {
