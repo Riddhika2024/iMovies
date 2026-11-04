@@ -39,10 +39,29 @@
 
 ---
 
-## 📁 Project Architecture
+## 📁 Project Documentation
+
+Comprehensive technical documentation, architecture specifications, and visual diagrams are organized within the [`docs/`](docs/) directory:
+
+| Document | Focus & Highlights |
+| :--- | :--- |
+| 🏛️ **[System Architecture & MVC Implementation](docs/architecture.md)** | Explains the client-server architecture, MVC layers (Models, Views, Controllers), request lifecycle, Socket.IO real-time bus, and Razorpay 5-step transaction protocol. |
+| 👥 **[Engineering Roles & Responsibilities](docs/roles.md)** | Defines engineering disciplines, RACI feature matrix, conventional commit standards, and Git branching workflows. |
+| 🗄️ **[Entity-Relationship (ER) Diagram](docs/diagrams/er-diagram.md)** | Complete database schema diagram in Mermaid.js with detailed entity attributes, data types, compound indexes, and TTL seat-locking semantics. |
+| 🗺️ **[End-to-End User Flow & Journey](docs/diagrams/user-flow.md)** | Comprehensive visual workflows for both Customer Cinema Booking (browse, lock, pay, digital ticket) and Administrator Operations (TMDB sync, refund engine). |
+
+---
+
+## 📁 Directory Structure
 
 ```
 iMovies/
+├── docs/                       # Comprehensive Project Documentation
+│   ├── diagrams/               # System & User Flow Diagrams
+│   │   ├── er-diagram.md       # Database Entity-Relationship (ER) Diagram
+│   │   └── user-flow.md        # Customer & Admin User Journey Workflows
+│   ├── architecture.md         # MVC Pattern & System Architecture Specification
+│   └── roles.md                # Team Roles & RACI Responsibility Matrix
 ├── client/                     # Frontend (Vite + React)
 │   ├── src/
 │   │   ├── components/         # Header, Footer, Loader, MovieCard, AdminTransactions, UserProtection, AdminProtection
